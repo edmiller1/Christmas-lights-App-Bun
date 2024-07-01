@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.48.0",
+    "@tanstack/react-router": "^1.43.1",
+    "@tanstack/router-devtools": "^1.43.1",
+    "@tanstack/router-plugin": "^1.43.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.397.0",

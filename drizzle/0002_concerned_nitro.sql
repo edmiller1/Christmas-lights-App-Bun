@@ -1,0 +1,1 @@
+ALTER TABLE "decorations" ALTER COLUMN "creator_id" SET DATA TYPE integer;
