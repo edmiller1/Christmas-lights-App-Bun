@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import jwksClient from "jwks-rsa";
 import jwt from "jsonwebtoken";
+import { decode, sign, verify } from "hono/jwt";
 
 const client = jwksClient({
   jwksUri: `${process.env.KINDE_AUTH_DOMAIN}/.well-known/jwks.json`,
@@ -8,12 +9,13 @@ const client = jwksClient({
 
 export const webhookRoute = new Hono().post("/webhook", async (c) => {
   try {
+    console.log("Hello");
     // Get the token from the request
     const token = await c.req.text();
 
     // Decode the token
+    const { header, payload } = decode(token);
     //@ts-ignore
-    const { header } = jwt.decode(token, { complete: true });
     const { kid } = header;
 
     // Verify the token
