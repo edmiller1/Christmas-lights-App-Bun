@@ -4,6 +4,7 @@ import { getUser, kindeClient, sessionManager } from "../kinde";
 
 export const authRoute = new Hono()
   .get("/login", async (c) => {
+    console.log("Logging in");
     const loginUrl = await kindeClient.login(sessionManager(c));
     return c.redirect(loginUrl.toString());
   })
